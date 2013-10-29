@@ -46,6 +46,10 @@ nnoremap ; :
 "Supposed to save file on losing focus, I don't think it works
 au FocusLost * :wa
 
+"Save and restore fold state
+au BufWinLeave *.* mkview
+au BufWinEnter *.* silent loadview
+
 "Set up the GUI
 colorscheme molokai
 if has('gui_running')
