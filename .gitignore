@@ -1,3 +1,4 @@
 #ignore temp files with trailing tilde
 *~
 
+.netrwhist
