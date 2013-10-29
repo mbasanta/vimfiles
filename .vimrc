@@ -33,6 +33,9 @@ set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
 
+"Turn off the toolbar by default
+set guioptions-=T
+
 "Show some hidden characters
 set list
 set listchars=tab:▸\ ,eol:¬
