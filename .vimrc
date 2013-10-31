@@ -43,7 +43,7 @@ set listchars=tab:▸\ ,eol:¬
 "Map ; to :
 nnoremap ; :
 
-"Supposed to save file on losing focus, I don't think it works
+"Save file on losing focus
 au FocusLost * :wa
 
 "Save and restore fold state
