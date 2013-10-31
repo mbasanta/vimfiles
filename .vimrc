@@ -50,6 +50,11 @@ au FocusLost * :wa
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
 
+"Python stuff
+"Set up :make
+autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
+autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
 "Set up the GUI
 colorscheme molokai
 if has('gui_running')
