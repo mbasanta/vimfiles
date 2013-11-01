@@ -1,4 +1,5 @@
-#ignore temp files with trailing tilde
+#ignore temp files with trailing tilde or equals
 *~
+*=
 
 .netrwhist
