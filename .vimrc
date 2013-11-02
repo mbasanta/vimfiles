@@ -1,10 +1,5 @@
 set nocompatible
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
 set encoding=utf-8
 set scrolloff=3
 set autoindent
@@ -63,13 +58,6 @@ colorscheme molokai
 if has('gui_running')
     set lines=40 columns=100
     set guifont=Consolas:h10:cANSI
-else
-    if exists('+lines')
-        set lines=40
-    endif
-    if exists('+columns')
-        set columns=100
-    endif
 endif
 
 "Some custom functions for tabs
