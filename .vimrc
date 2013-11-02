@@ -55,6 +55,9 @@ au BufWinEnter *.* silent loadview
 autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
 autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
+"Show .md with markdown syntax
+au BufRead,BufNewFile *.md set filetype=markdown
+
 "Set up the GUI
 colorscheme molokai
 if has('gui_running')
