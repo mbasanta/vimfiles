@@ -19,6 +19,7 @@ endif
 
 Bundle "klen/python-mode"
 Bundle "davidhalter/jedi-vim"
+Bundle "ervandew/supertab"
 
 "Setup PowerLine
 "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
