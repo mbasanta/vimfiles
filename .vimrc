@@ -71,6 +71,9 @@ let mapleader=","
 
 "Map ; to :
 nnoremap ; :
+"Code competion with ctrl-space
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
 
 "Save file on losing focus
 au FocusLost * :wa
