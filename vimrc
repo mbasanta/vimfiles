@@ -1,28 +1,6 @@
 set nocompatible
 "This line is required for Vim < 7.4
-"filetype off
-
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-
-"let Vundle manage Vundle
-"required! git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-"The others will install automatically with :BundleInstall
-Bundle 'gmarik/vundle'
-
-"The bundles you install will be listed here
-if has("gui_running")
-    Bundle 'Lokaltog/powerline', {'rtp':'powerline/bindings/vim/'}
-    "required font here:https://github.com/Lokaltog/powerline-fonts
-    "I'm using Inconsolata for Powerline
-endif
-
-Bundle "klen/python-mode"
-Bundle "davidhalter/jedi-vim"
-Bundle "ervandew/supertab"
-
-"Setup PowerLine
-"set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+filetype off
 
 filetype plugin indent on
 
@@ -67,10 +45,10 @@ set guioptions-=T
 set list
 set listchars=tab:▸\ ,eol:¬
 
+syntax on
+
 let mapleader=","
 
-"Map ; to :
-nnoremap ; :
 "Code competion with ctrl-space
 inoremap <C-Space> <C-x><C-o>
 inoremap <C-@> <C-Space>
