@@ -8,7 +8,11 @@ call pathogen#helptags()
 
 filetype plugin indent on
 
+"Setup pwerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+
+"Setup NERDTree
+map <F2> :NERDTreeToggle<CR>
 
 set tabstop=4
 set shiftwidth=4
