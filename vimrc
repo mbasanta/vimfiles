@@ -8,6 +8,8 @@ call pathogen#helptags()
 
 filetype plugin indent on
 
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
