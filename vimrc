@@ -18,6 +18,9 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+" Switch quickly between indentations
+nnoremap 2sp :set sw=2 sts=2 ts=2<CR>
+nnoremap 4sp :set sw=4 sts=4 ts=4<CR>
 
 set encoding=utf-8
 set scrolloff=3
