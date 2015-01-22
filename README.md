@@ -1,18 +1,26 @@
 #vimfiles
 
-###Vim Customizations
+##Vim Customizations
 
-Installation
+###Installation
 
-    git clone https://github.com/mbasanta/vimfiles.git ~/.vim
+```
+git clone https://github.com/mbasanta/vimfiles.git ~/.vim
+```
 
-Create symlinks:
+###Create symlinks:
 
-    ln -s ~/.vim/vimrc ~/.vimrc
-    ln -s ~/.vim/gvimrc ~/.gvimrc
+```
+ln -s ~/.vim/vimrc ~/.vimrc
+ln -s ~/.vim/gvimrc ~/.gvimrc
+```
 
-Switch to the '~/.vim' directory, and fetch submodules:
+###Set up Vundle
 
-    cd ~/.vim
-    git submodule init
-    git submodule update
+Clone Vundle
+
+```
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+Open Vim and run `:PluginInstall`
