@@ -1,10 +1,19 @@
 set nocompatible
-"This line is required for Vim < 7.4
+
+"Setup Vundle
 filetype off
 
-"Setup Pathogen
-call pathogen#infect()
-call pathogen#helptags()
+set runtimepath+=~/vim/bundle/Vundle.vim
+call vundle#rc()
+Bundle 'gmarik/Vundle.vim'
+
+Bundle 'davidhalter/jedi-vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/powerline'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-commentary'
+Bundle 'peterhoeg/vim-qml'
+Bundle 'sukima/xmledit'
 
 filetype plugin indent on
 
