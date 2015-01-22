@@ -3,8 +3,9 @@ set nocompatible
 "Setup Vundle
 filetype off
 
-set runtimepath+=~/vim/bundle/Vundle.vim
-call vundle#rc()
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
 Bundle 'gmarik/Vundle.vim'
 
 Bundle 'davidhalter/jedi-vim'
@@ -15,6 +16,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'peterhoeg/vim-qml'
 Bundle 'sukima/xmledit'
 
+call vundle#end()
 filetype plugin indent on
 
 "Setup pwerline
