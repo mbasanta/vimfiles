@@ -1,29 +1,49 @@
-set nocompatible
+" Modeline and Notes {
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"
+"   This is the personal .vimrc file of Matthew Basanta. This is heavily
+"   copied from Steve Francia's spf13 Vim. For more information see
+"   http://github.com/spf13/spf13-vim
+"
+"   Copyright 2015 Matthew Basanta
+"
+"   Licensed under the Apache License, Version 2.0 (the "License");
+"   you may not use this file except in compliance with the License.
+"   You may obtain a copy of the License at
+"
+"       http://www.apache.org/licenses/LICENSE-2.0
+"
+"   Unless required by applicable law or agreed to in writing, software
+"   distributed under the License is distributed on an "AS IS" BASIS,
+"   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+"   See the License for the specific language governing permissions and
+"   limitations under the License.
+" }
 
-"Setup Vundle
-filetype off
+" Vundle Setup {
 
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+    set nocompatible
 
-Bundle 'gmarik/Vundle.vim'
+    "Setup Vundle
+    filetype off
 
-Bundle 'davidhalter/jedi-vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/powerline'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-commentary'
-Bundle 'peterhoeg/vim-qml'
-Bundle 'sukima/xmledit'
+    set runtimepath+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 
-call vundle#end()
-filetype plugin indent on
+    Bundle 'gmarik/Vundle.vim'
 
-"Setup pwerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+    Bundle 'davidhalter/jedi-vim'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'bling/vim-airline'
+    Bundle 'scrooloose/syntastic'
+    Bundle 'tpope/vim-commentary'
+    Bundle 'peterhoeg/vim-qml'
+    Bundle 'sukima/xmledit'
 
-"Setup NERDTree
-map <F2> :NERDTreeToggle<CR>
+    call vundle#end()
+    filetype plugin indent on
+
+" }
 
 set tabstop=4
 set shiftwidth=4
@@ -101,56 +121,80 @@ if has('gui_running')
     set guifont=Inconsolata\ for\ Powerline:h12
 endif
 
-"Some custom functions for tabs
-"Set tabstop, softtabs and shiftwidth to the same value
-command! -nargs=* Stab call Stab()
-function! Stab()
-    let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-    if l:tabstop > 0
-        let &l:sts = l:tabstop
-        let &l:ts = l:tabstop
-        let &l:sw = l:tabstop
-    endif
-    call SummarizeTabs()
-endfunction
+" Plugin Config {
 
-function! SummarizeTabs()
-    try
-        echohl ModeMsg
-        echon 'tabstop='.&l:ts
-        echon 'shiftwidth='.&l:sw
-        echon 'softtabstop='.&l:sts
-        if &l:et
-            echon ' expandtab'
-        else
-            echon ' noexpandtab'
+    " vim-airline {
+        " Set configuration options for the statusline plugin vim-airline.
+        " See `:echo g:airline_theme_map` for some more choices
+        " Default in terminal vim is 'dark'
+        if isdirectory(expand("~/.vim/bundle/vim-airline/"))
+            let g:airline_powerline_fonts=1
+            " Set configuration options for the statusline plugin vim-airline.
+            " See `:echo g:airline_theme_map` for some more choices
+            " Default in terminal vim is 'dark'
+            let g:airline_theme = 'solarized'
         endif
-    finally
-        echohl None
-    endtry
-endfunction
+    " }
 
-" Function to activate a virtualenv in the embedded interpreter for
-" omnicomplete and other things like that.
-function! LoadVirtualEnv(path)
-    let full_path =  '/users/matthewbasanta/virtualenvs/' . a:path
-    let activate_this = full_path . '/bin/activate_this.py'
-    if getftype(full_path) == "dir" && filereadable(activate_this)
-        python << EOF
-import vim
-activate_this = vim.eval('l:activate_this')
-execfile(activate_this, dict(__file__=activate_this))
-EOF
+    " NERDTree {
+        map <F2> :NERDTreeToggle<CR>
+    " }
+
+" }
+
+" Custom Functions {
+    "Some custom functions for tabs
+    "Set tabstop, softtabs and shiftwidth to the same value
+    command! -nargs=* Stab call Stab()
+    function! Stab()
+        let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+        if l:tabstop > 0
+            let &l:sts = l:tabstop
+            let &l:ts = l:tabstop
+            let &l:sw = l:tabstop
+        endif
+        call SummarizeTabs()
+    endfunction
+
+    function! SummarizeTabs()
+        try
+            echohl ModeMsg
+            echon 'tabstop='.&l:ts
+            echon 'shiftwidth='.&l:sw
+            echon 'softtabstop='.&l:sts
+            if &l:et
+                echon ' expandtab'
+            else
+                echon ' noexpandtab'
+            endif
+        finally
+            echohl None
+        endtry
+    endfunction
+
+    " Function to activate a virtualenv in the embedded interpreter for
+    " omnicomplete and other things like that.
+    function! LoadVirtualEnv(path)
+        let full_path =  '/users/matthewbasanta/virtualenvs/' . a:path
+        let activate_this = full_path . '/bin/activate_this.py'
+        if getftype(full_path) == "dir" && filereadable(activate_this)
+            python << EOF
+    import vim
+    activate_this = vim.eval('l:activate_this')
+    execfile(activate_this, dict(__file__=activate_this))
+    EOF
+        endif
+    endfunction
+
+    " Load up a 'stable' virtualenv if one exists in ~/.virtualenv
+    let defaultvirtualenv = $HOME . "/virtualenvs/stable"
+
+    " Only attempt to load this virtualenv if the defaultvirtualenv
+    " actually exists, and we aren't running with a virtualenv active.
+    if has("python")
+        if empty($VIRTUAL_ENV) && getftype(defaultvirtualenv) == "dir"
+            call LoadVirtualEnv(defaultvirtualenv)
+        endif
     endif
-endfunction
 
-" Load up a 'stable' virtualenv if one exists in ~/.virtualenv
-let defaultvirtualenv = $HOME . "/virtualenvs/stable"
-
-" Only attempt to load this virtualenv if the defaultvirtualenv
-" actually exists, and we aren't running with a virtualenv active.
-if has("python")
-    if empty($VIRTUAL_ENV) && getftype(defaultvirtualenv) == "dir"
-        call LoadVirtualEnv(defaultvirtualenv)
-    endif
-endif
+ }
