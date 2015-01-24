@@ -1,5 +1,5 @@
 " Modeline and Notes {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 "
 "   This is the personal .vimrc file of Matthew Basanta. This is heavily
 "   copied from Steve Francia's spf13 Vim. For more information see
@@ -66,6 +66,7 @@
     Bundle 'tpope/vim-commentary'
     Bundle 'peterhoeg/vim-qml'
     Bundle 'sukima/xmledit'
+    Bundle 'tpope/vim-fugitive'
 
     call vundle#end()
 
