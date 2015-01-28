@@ -77,6 +77,7 @@
     " Python {
         " Bundle 'davidhalter/jedi-vim'
     " }
+    Bundle 'pangloss/vim-javascript'
 
     call vundle#end()
 
