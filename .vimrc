@@ -40,6 +40,9 @@
         if !WINDOWS()
             set shell=/bin/sh
         endif
+
+        " Always switch to the current file directory
+        autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
     " }
 
     " Windows Compatible {
@@ -246,6 +249,13 @@
 
     " NERDTree {
         map <F2> :NERDTreeToggle<CR>
+    " }
+
+    " YouCompleteMe {
+        " Close autocomplete preview window
+        let g:ycm_autoclose_preview_window_after_completion=1
+        " use leader g to get to definition
+        nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
     " }
 
 " }
