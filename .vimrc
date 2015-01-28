@@ -59,14 +59,24 @@
 
     Bundle 'gmarik/Vundle.vim'
 
-    Bundle 'davidhalter/jedi-vim'
     Bundle 'scrooloose/nerdtree'
     Bundle 'bling/vim-airline'
-    Bundle 'scrooloose/syntastic'
-    Bundle 'tpope/vim-commentary'
     Bundle 'peterhoeg/vim-qml'
     Bundle 'sukima/xmledit'
-    Bundle 'tpope/vim-fugitive'
+
+    " General Programming {
+        Bundle 'scrooloose/syntastic'
+        Bundle 'tpope/vim-fugitive'
+        Bundle 'tpope/vim-commentary'
+    " }
+
+    " Snippets & Autocomplete {
+        Bundle 'Valloric/YouCompleteMe'
+    " }
+
+    " Python {
+        " Bundle 'davidhalter/jedi-vim'
+    " }
 
     call vundle#end()
 
