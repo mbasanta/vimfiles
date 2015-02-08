@@ -80,6 +80,7 @@
     " Python {
         " Bundle 'davidhalter/jedi-vim'
     " }
+
     Bundle 'pangloss/vim-javascript'
 
     call vundle#end()
@@ -256,6 +257,11 @@
         let g:ycm_autoclose_preview_window_after_completion=1
         " use leader g to get to definition
         nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    " }
+
+    " Syntastic {
+        let g:syntastic_python_checkers = ['pylint']
+        let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"'
     " }
 
 " }
