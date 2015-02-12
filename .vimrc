@@ -81,7 +81,9 @@
         " Bundle 'davidhalter/jedi-vim'
     " }
 
-    Bundle 'pangloss/vim-javascript'
+    " Javascript {
+        Bundle 'pangloss/vim-javascript'
+    " }
 
     call vundle#end()
 
