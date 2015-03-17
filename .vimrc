@@ -83,13 +83,13 @@
 
     " Javascript {
         Bundle 'pangloss/vim-javascript'
-    "}
+    " }
 
     " HTML {
         Bundle 'amirh/HTML-AutoCloseTag'
         Bundle 'hail2u/vim-css3-syntax'
         Bundle 'gorodinskiy/vim-coloresque'
-    "}
+    " }
 
     call vundle#end()
 
@@ -103,6 +103,8 @@
     set mouse=a                 " Automatically enable mouse usage
     set mousehide               " Hide the mouse cursor while typing
     scriptencoding utf-8
+    set encoding=utf-8
+    set termencoding=utf-8
 
     if has('clipboard')
         if has('unnamedplus')  " When possible use + register for copy-paste
@@ -266,6 +268,11 @@
 
     " AutoCloseTag {
         au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
+    " }
+
+    " Syntastic {
+        let g:syntastic_python_checkers = ['pylint']
+        let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"'
     " }
 
 " }
