@@ -80,7 +80,16 @@
     " Python {
         " Bundle 'davidhalter/jedi-vim'
     " }
-    Bundle 'pangloss/vim-javascript'
+
+    " Javascript {
+        Bundle 'pangloss/vim-javascript'
+    "}
+
+    " HTML {
+        Bundle 'amirh/HTML-AutoCloseTag'
+        Bundle 'hail2u/vim-css3-syntax'
+        Bundle 'gorodinskiy/vim-coloresque'
+    "}
 
     call vundle#end()
 
@@ -258,6 +267,10 @@
         nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
     " }
 
+    " AutoCloseTag {
+        au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
+    " }
+
 " }
 
 " Custom Functions {
@@ -348,7 +361,7 @@
     " Function to activate a virtualenv in the embedded interpreter for
     " omnicomplete and other things like that.
     function! LoadVirtualEnv(path)
-        let full_path =  '/users/matthewbasanta/virtualenvs/' . a:path
+        let full_path =  '~/virtualenvs/' . a:path
         let activate_this = full_path . '/bin/activate_this.py'
         if getftype(full_path) == "dir" && filereadable(activate_this)
             python << EOF
