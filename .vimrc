@@ -117,9 +117,6 @@
     set virtualedit=onemore            " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
     set hidden
-    set iskeyword-=.                    " '.' is an end of word designator
-    set iskeyword-=#                    " '#' is an end of word designator
-    set iskeyword-=-                    " '-' is an end of word designator
 
     au FocusLost * :wa                  " Save file on losing focus
 
