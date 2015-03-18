@@ -74,7 +74,10 @@
     " }
 
     " Snippets & Autocomplete {
+        Bundle 'ervandew/supertab'
         Bundle 'Valloric/YouCompleteMe'
+        Bundle 'SirVer/ultisnips'
+        Bundle 'honza/vim-snippets'
     " }
 
     " Python {
@@ -264,6 +267,18 @@
         let g:ycm_autoclose_preview_window_after_completion=1
         " use leader g to get to definition
         nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+        " make YCM compatible with UltiSnips (using supertab)
+        let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+        let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+        let g:SuperTabDefaultCompletionType = '<C-n>'
+    " }
+
+    " UltiSnips {
+        " better key bindings for UltiSnipsExpandTrigger
+        let g:UltiSnipsExpandTrigger = "<tab>"
+        let g:UltiSnipsJumpForwardTrigger = "<tab>"
+        let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
     " }
 
     " AutoCloseTag {
