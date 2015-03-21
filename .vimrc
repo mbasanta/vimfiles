@@ -86,6 +86,7 @@
 
     " Javascript {
         Bundle 'pangloss/vim-javascript'
+        Bundle 'othree/javascript-libraries-syntax.vim'
     " }
 
     " HTML {
@@ -288,6 +289,21 @@
     " Syntastic {
         let g:syntastic_python_checkers = ['pylint']
         let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"'
+
+        " Lets fix some html syntax checking for various js libs
+        let g:syntastic_html_tidy_ignore_errors = [
+            \"<html> proprietary attribute \"class\"",
+            \"<input> proprietary attribute \"autocomplete\"",
+            \"trimming empty <i>",
+            \"trimming empty <span>",
+            \" proprietary attribute \"ng-",
+            \"proprietary attribute \"role\"",
+            \"proprietary attribute \"hidden\"",
+        \]
+    " }
+
+    " javascript-libraries-syntax {
+        let g:used_javascript_libs = 'jquery, angularjs, angularui'
     " }
 
 " }
