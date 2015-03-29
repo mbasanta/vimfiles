@@ -217,6 +217,10 @@
     " Workaround broken colour highlighting in Haskell
     autocmd FileType haskell,rust setlocal nospell
 
+    " Update tab width for certain file types
+    autocmd FileType javascript setl sw=2 ts=2 sts=2 et
+    autocmd FileType html setl sw=2 ts=2 sts=2 et
+
 " }
 
 " GUI Settings {
