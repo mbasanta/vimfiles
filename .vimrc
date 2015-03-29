@@ -180,6 +180,10 @@
 
     let mapleader=","
 
+    set iskeyword-=-                " remove some keywords so word movements work
+    set iskeyword-=#
+    set iskeyword-=.
+
 " }
 
 " Formatting {
