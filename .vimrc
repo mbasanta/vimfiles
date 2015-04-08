@@ -66,6 +66,7 @@
     Bundle 'bling/vim-airline'
     Bundle 'peterhoeg/vim-qml'
     Bundle 'sukima/xmledit'
+    Bundle 'editorconfig/editorconfig-vim'
 
     " General Programming {
         Bundle 'scrooloose/syntastic'
