@@ -88,6 +88,7 @@
     " Javascript {
         Bundle 'pangloss/vim-javascript'
         Bundle 'othree/javascript-libraries-syntax.vim'
+        Bundle 'mxw/vim-jsx'
     " }
 
     " HTML {
@@ -312,6 +313,7 @@
 
     " javascript-libraries-syntax {
         let g:used_javascript_libs = 'jquery, angularjs, angularui'
+        let g:syntastic_javascript_checkers = ['eslint']
     " }
 
 " }
