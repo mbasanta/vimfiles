@@ -92,7 +92,6 @@
     " HTML {
         Bundle 'amirh/HTML-AutoCloseTag'
         Bundle 'hail2u/vim-css3-syntax'
-        Bundle 'gorodinskiy/vim-coloresque'
     " }
 
     call vundle#end()
