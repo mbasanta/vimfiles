@@ -66,6 +66,7 @@
     Bundle 'bling/vim-airline'
     Bundle 'peterhoeg/vim-qml'
     Bundle 'sukima/xmledit'
+    Bundle 'editorconfig/editorconfig-vim'
 
     " General Programming {
         Bundle 'scrooloose/syntastic'
@@ -370,6 +371,13 @@
     " Switch quickly between indentations
     nnoremap 2sp :set sw=2 sts=2 ts=2<CR>
     nnoremap 4sp :set sw=4 sts=4 ts=4<CR>
+
+    " Brace completion
+    inoremap {      {}<Left>
+    inoremap {<CR>  {<CR>}<Esc>O
+    inoremap {{     {
+    inoremap {}     {}
+
 
     "Some custom functions for tabs
     "Set tabstop, softtabs and shiftwidth to the same value
