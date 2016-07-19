@@ -63,10 +63,12 @@
     Bundle 'gmarik/Vundle.vim'
 
     Bundle 'scrooloose/nerdtree'
-    Bundle 'bling/vim-airline'
+    Bundle 'vim-airline/vim-airline'
+    Bundle 'vim-airline/vim-airline-themes'
     Bundle 'peterhoeg/vim-qml'
     Bundle 'sukima/xmledit'
     Bundle 'editorconfig/editorconfig-vim'
+    Bundle 'rdnetto/YCM-Generator'
 
     " General Programming {
         Bundle 'scrooloose/syntastic'
@@ -314,7 +316,7 @@
 
     " javascript-libraries-syntax {
         let g:used_javascript_libs = 'jquery, angularjs, angularui'
-        let g:syntastic_javascript_checkers = ['eslint']
+        let g:syntastic_javascript_checkers = ['jshint']
     " }
 
 " }
