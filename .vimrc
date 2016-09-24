@@ -55,32 +55,58 @@
 
 " }
 
-" Vundle Setup {
+" Vim-Plug {
 
-    set runtimepath+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
+    call plug#begin('~/.vim/plugged')
 
-    Bundle 'gmarik/Vundle.vim'
-
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'vim-airline/vim-airline'
-    Bundle 'vim-airline/vim-airline-themes'
-    Bundle 'peterhoeg/vim-qml'
-    Bundle 'sukima/xmledit'
-    Bundle 'editorconfig/editorconfig-vim'
-    Bundle 'rdnetto/YCM-Generator'
+    " Vim Stuff {
+        Plug 'scrooloose/nerdtree'
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
+        Plug 'editorconfig/editorconfig-vim'
+    " }
 
     " General Programming {
-        Bundle 'scrooloose/syntastic'
-        Bundle 'tpope/vim-fugitive'
-        Bundle 'tpope/vim-commentary'
+        Plug 'scrooloose/syntastic'
+        Plug 'tpope/vim-fugitive'
     " }
 
     " Snippets & Autocomplete {
-        Bundle 'ervandew/supertab'
-        Bundle 'Valloric/YouCompleteMe'
-        Bundle 'SirVer/ultisnips'
-        Bundle 'honza/vim-snippets'
+        " Bundle 'ervandew/supertab'
+        Plug 'Valloric/YouCompleteMe'
+        " Bundle 'SirVer/ultisnips'
+        " Bundle 'honza/vim-snippets'
+    " }
+
+    call plug#end()
+" }
+
+" Vundle Setup {
+
+    " set runtimepath+=~/.vim/bundle/Vundle.vim
+    " call vundle#begin()
+
+    " Bundle 'gmarik/Vundle.vim'
+
+    " Bundle 'scrooloose/nerdtree'
+    " Bundle 'vim-airline/vim-airline'
+    " Bundle 'vim-airline/vim-airline-themes'
+    " Bundle 'peterhoeg/vim-qml'
+    " Bundle 'sukima/xmledit'
+    " Bundle 'editorconfig/editorconfig-vim'
+    " Bundle 'rdnetto/YCM-Generator'
+
+    " General Programming {
+        " Bundle 'scrooloose/syntastic'
+        " Bundle 'tpope/vim-fugitive'
+        " Bundle 'tpope/vim-commentary'
+    " }
+
+    " Snippets & Autocomplete {
+        " Bundle 'ervandew/supertab'
+        " Bundle 'Valloric/YouCompleteMe'
+        " Bundle 'SirVer/ultisnips'
+        " Bundle 'honza/vim-snippets'
     " }
 
     " Python {
@@ -88,18 +114,18 @@
     " }
 
     " Javascript {
-        Bundle 'pangloss/vim-javascript'
-        Bundle 'othree/javascript-libraries-syntax.vim'
-        Bundle 'mxw/vim-jsx'
+        " Bundle 'pangloss/vim-javascript'
+        " Bundle 'othree/javascript-libraries-syntax.vim'
+        " Bundle 'mxw/vim-jsx'
     " }
 
     " HTML {
-        Bundle 'amirh/HTML-AutoCloseTag'
-        Bundle 'hail2u/vim-css3-syntax'
-        Bundle 'digitaltoad/vim-jade'
+        " Bundle 'amirh/HTML-AutoCloseTag'
+        " Bundle 'hail2u/vim-css3-syntax'
+        " Bundle 'digitaltoad/vim-jade'
     " }
 
-    call vundle#end()
+    " call vundle#end()
 
 " }
 
