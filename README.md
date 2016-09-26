@@ -16,8 +16,16 @@
 
 ###Installation
 
+#### Mac
+
 ```
 git clone https://github.com/mbasanta/vimfiles.git ~/.vim
+```
+
+#### Windows
+
+```
+git clone https://github.com/mbasanta/vimfiles.git ~/vimfiles
 ```
 
 ###Create symlinks:
