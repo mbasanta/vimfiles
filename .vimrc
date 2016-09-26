@@ -49,7 +49,7 @@
         " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
         " across (heterogeneous) systems easier.
         if WINDOWS()
-          set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+          set runtimepath=$HOME/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after
         endif
     " }
 
@@ -57,12 +57,21 @@
 
 " Vim-Plug {
 
-    call plug#begin('~/.vim/plugged')
+    if !WINDOWS()
+        call plug#begin('~/.vim/plugged')
+    else
+        call plug#begin('~/vimfiles/plugged')
+    endif
+
+    if !WINDOWS()
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
+    else
+        Plug 'itchyny/lightline.vim'
+    endif
 
     " Vim Stuff {
         Plug 'scrooloose/nerdtree'
-        Plug 'vim-airline/vim-airline'
-        Plug 'vim-airline/vim-airline-themes'
         Plug 'editorconfig/editorconfig-vim'
     " }
 
@@ -79,54 +88,6 @@
     " }
 
     call plug#end()
-" }
-
-" Vundle Setup {
-
-    " set runtimepath+=~/.vim/bundle/Vundle.vim
-    " call vundle#begin()
-
-    " Bundle 'gmarik/Vundle.vim'
-
-    " Bundle 'scrooloose/nerdtree'
-    " Bundle 'vim-airline/vim-airline'
-    " Bundle 'vim-airline/vim-airline-themes'
-    " Bundle 'peterhoeg/vim-qml'
-    " Bundle 'sukima/xmledit'
-    " Bundle 'editorconfig/editorconfig-vim'
-    " Bundle 'rdnetto/YCM-Generator'
-
-    " General Programming {
-        " Bundle 'scrooloose/syntastic'
-        " Bundle 'tpope/vim-fugitive'
-        " Bundle 'tpope/vim-commentary'
-    " }
-
-    " Snippets & Autocomplete {
-        " Bundle 'ervandew/supertab'
-        " Bundle 'Valloric/YouCompleteMe'
-        " Bundle 'SirVer/ultisnips'
-        " Bundle 'honza/vim-snippets'
-    " }
-
-    " Python {
-        " Bundle 'davidhalter/jedi-vim'
-    " }
-
-    " Javascript {
-        " Bundle 'pangloss/vim-javascript'
-        " Bundle 'othree/javascript-libraries-syntax.vim'
-        " Bundle 'mxw/vim-jsx'
-    " }
-
-    " HTML {
-        " Bundle 'amirh/HTML-AutoCloseTag'
-        " Bundle 'hail2u/vim-css3-syntax'
-        " Bundle 'digitaltoad/vim-jade'
-    " }
-
-    " call vundle#end()
-
 " }
 
 " General {
@@ -254,12 +215,10 @@
 " }
 
 " GUI Settings {
-
-    "Set up the GUI
-    colorscheme molokai
-
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
+        "Set up the GUI
+        colorscheme molokai
         set guioptions-=T           " Remove the toolbar
         set lines=40                " 40 lines of text instead of 24
         set columns=120
@@ -269,7 +228,7 @@
             elseif OSX() && has("gui_running")
                 set guifont=Inconsolata\ for\ Powerline:h12,Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
             elseif WINDOWS() && has("gui_running")
-                set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
+                set guifont=Inconsolata\ for\ Powerline:h10,Menlo:h10,Consolas:h10,Courier_New:h10
             endif
         endif
     else
@@ -402,13 +361,6 @@
     " Switch quickly between indentations
     nnoremap 2sp :set sw=2 sts=2 ts=2<CR>
     nnoremap 4sp :set sw=4 sts=4 ts=4<CR>
-
-    " Brace completion
-    inoremap {      {}<Left>
-    inoremap {<CR>  {<CR>}<Esc>O
-    inoremap {{     {
-    inoremap {}     {}
-
 
     "Some custom functions for tabs
     "Set tabstop, softtabs and shiftwidth to the same value
