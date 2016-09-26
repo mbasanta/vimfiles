@@ -244,7 +244,8 @@
         " Set configuration options for the statusline plugin vim-airline.
         " See `:echo g:airline_theme_map` for some more choices
         " Default in terminal vim is 'dark'
-        if isdirectory(expand(vimfiles . '/vim-airline/'))
+        if isdirectory(expand(vimfiles . '/plugged/vim-airline/'))
+            "if isdirectory(expand('~/.vim/plugged/vim-airline/'))
             let g:airline_powerline_fonts=1
             " Set configuration options for the statusline plugin vim-airline.
             " See `:echo g:airline_theme_map` for some more choices
