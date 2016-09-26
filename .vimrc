@@ -49,7 +49,10 @@
         " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
         " across (heterogeneous) systems easier.
         if WINDOWS()
-          set runtimepath=$HOME/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after
+            set runtimepath=$HOME/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after
+            let vimfiles = '~/vimfiles'
+        else
+            let vimfiles = '~/.vim'
         endif
     " }
 
@@ -57,11 +60,7 @@
 
 " Vim-Plug {
 
-    if !WINDOWS()
-        call plug#begin('~/.vim/plugged')
-    else
-        call plug#begin('~/vimfiles/plugged')
-    endif
+    call plug#begin(vimfiles . '/plugged')
 
     if !WINDOWS()
         Plug 'vim-airline/vim-airline'
@@ -245,7 +244,7 @@
         " Set configuration options for the statusline plugin vim-airline.
         " See `:echo g:airline_theme_map` for some more choices
         " Default in terminal vim is 'dark'
-        if isdirectory(expand("~/.vim/bundle/vim-airline/"))
+        if isdirectory(expand(vimfiles . '/vim-airline/'))
             let g:airline_powerline_fonts=1
             " Set configuration options for the statusline plugin vim-airline.
             " See `:echo g:airline_theme_map` for some more choices
@@ -265,22 +264,6 @@
         let g:ycm_autoclose_preview_window_after_completion=1
         " use leader g to get to definition
         nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-        " make YCM compatible with UltiSnips (using supertab)
-        let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-        let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-        let g:SuperTabDefaultCompletionType = '<C-n>'
-    " }
-
-    " UltiSnips {
-        " better key bindings for UltiSnipsExpandTrigger
-        let g:UltiSnipsExpandTrigger = "<tab>"
-        let g:UltiSnipsJumpForwardTrigger = "<tab>"
-        let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-    " }
-
-    " AutoCloseTag {
-        au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
     " }
 
     " Syntastic {
