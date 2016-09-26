@@ -2,6 +2,9 @@
 *~
 *=
 
+#Make sure we're always getting the current version
+autoload/plug.vim
+
 .netrwhist
 bundle/**
 plugged/**
